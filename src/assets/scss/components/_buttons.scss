@@ -1,0 +1,38 @@
+.btn--black {
+	font-size: 2rem;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+}
+
+// buttons
+.btn {
+	position: relative;
+	padding: 15px 0px;
+	width: 160px;
+	color: white;
+	border: 0;
+	border-radius: 5px;
+	cursor: pointer;
+	display: inline-block;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar__btn {
+	margin: 5rem 0;
+}
+
+.btn--sidebar {
+	text-align: center;
+	margin-top: 20px;
+	margin-left: 20px;
+	font-size: 1.6rem;
+	font-weight: 500;
+	text-transform: uppercase;
+	background-color: #000;
+}
+
+.btn--body {
+	margin: 20px 0;
+	text-transform: uppercase;
+	background-color: #ff5722;
+}

@@ -1,0 +1,29 @@
+html,
+body {
+	height: 100%;
+}
+#app {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	margin: 0;
+}
+#sidebar {
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	left: 0;
+	width: 15%;
+	height: 100vh;
+	background-color: #ff5722;
+	font-size: 1.9rem;
+}
+
+#mainContent {
+	position: relative;
+	margin-left: 15%;
+	width: 85%;
+	background-color: white;
+	font-size: 1.6rem;
+	padding: 30px;
+}
