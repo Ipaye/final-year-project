@@ -3,8 +3,8 @@
     <div class="wrapper">
       <figure class="recording-svgs">
         <div class="time">4:14</div>
-        <img src="./assets/img/sound.svg" class="recording__svg-overlay" alt="record icon overlay">
-        <img src="./assets/img/030-microphone.svg" class="recording__svg-record" alt="record button">
+        <img src="../assets/img/sound.svg" class="recording__svg-overlay" alt="record icon overlay">
+        <img src="../assets/img/030-microphone.svg" class="recording__svg-record" alt="record button">
         <div class="recording-button">
           <a href="/record" class="btn btn--body">Stop</a>
         </div>
