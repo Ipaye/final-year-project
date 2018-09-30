@@ -1,18 +1,27 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+   <section class="home-section" style="display:none">
+    <figure class="homePage-image">
+      <img src="../assets/img/note.svg" alt="note background image" class="home-image">
+    </figure>
+    <div class="home-text">
+      <h1 class="primary-heading">Take <span class="m-red">notes</span> and set <span class="m-red">reminders</span>
+        easily.</h1>
+      <h6 class="subtitle">Transcribe voice inputs into texts. Say goodbye to lenghty lectures and forgotten
+        events.
+        simply record and transcribe to easily readable text.</h6>
+      <a href="#" class="btn btn--body">Record</a>
+    </div>
+  </section>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from '@/components/HelloWorld.vue';
 
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  }
-}
+	name: 'home',
+	components: {
+		HelloWorld
+	}
+};
 </script>
