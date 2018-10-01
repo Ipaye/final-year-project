@@ -1,5 +1,7 @@
 <template>
-   <section class="home-section" style="display:none">
+<!-- <main id="mainContent"> -->
+  
+   <section class="home-section" >
     <figure class="homePage-image">
       <img src="../assets/img/note.svg" alt="note background image" class="home-image">
     </figure>
@@ -12,6 +14,8 @@
       <a href="#" class="btn btn--body">Record</a>
     </div>
   </section>
+<!-- </main> -->
+  
 </template>
 
 <script>

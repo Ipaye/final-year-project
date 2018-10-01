@@ -1,4 +1,5 @@
 <template>
+  <main id="mainContent">
   <section class="recording-section">
     <div class="wrapper">
       <figure class="recording-svgs">
@@ -38,4 +39,5 @@
       </div>
     </div>
   </section>
+  </main>
 </template>

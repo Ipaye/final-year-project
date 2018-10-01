@@ -1,5 +1,6 @@
 <template>
-   <section class="note-section none">
+  <main id="mainContent">
+   <section class="note-section">
         <div class="note-image">
           <img src="../assets/img/Top-icon-svg.svg" class="top-note-image" alt="Note icon">
         </div>
@@ -71,4 +72,5 @@
 
         </div>
       </section>
+    </main>
 </template>
