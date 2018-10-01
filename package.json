@@ -1,6 +1,12 @@
 {
-	"name": "final-year-project",
-	"version": "0.1.0",
+	"name": "Speeco",
+	"version": "1.0.0",
+	"description": "A speech to text converter",
+	"author": {
+		"name": "Ipaye Alameen",
+		"email": "Akinkunmi007@gmail.com",
+		"url": "https:ipaye.github.io"
+	},
 	"private": true,
 	"scripts": {
 		"serve": "vue-cli-service serve",
