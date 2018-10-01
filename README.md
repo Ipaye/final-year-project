@@ -1,6 +1,6 @@
-# Final-year-project :fire:
+# Final-year-project
 
-Speeco - A basic implementation of a SPEECH:speaking_head: to TEXT:speech_balloon: converter.
+Speeco - A basic implementation of a SPEECHto TEXT converter.
 Speeco is Aimed at converting long streams of audio into text.
 
 ## Credit
