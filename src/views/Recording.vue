@@ -34,7 +34,7 @@
           natus expedita molestias nulla alias vel earum quibusdam est?
         </div>
         <div class="save-button">
-          <a href="/record" class="btn btn--body">Save</a>
+          <router-link to="/notes" href="/notes" class="btn btn--body">Save</router-link>
         </div>
       </div>
     </div>
