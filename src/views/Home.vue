@@ -11,7 +11,7 @@
       <h6 class="subtitle">Transcribe voice inputs into texts. Say goodbye to lenghty lectures and forgotten
         events.
         simply record and transcribe to easily readable text.</h6>
-      <a href="#" class="btn btn--body">Record</a>
+      <router-link to="/record" class="btn btn--body">Record</router-link>
     </div>
   </section>
 <!-- </main> -->
