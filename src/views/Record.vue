@@ -6,7 +6,7 @@
       <img src="../assets/img/mic-start.svg" class="record__svg-record" alt="record button">
     </figure>
     <div class="record-button">
-      <router-link to="/recording" href="/recording" class="btn btn--body">start</router-link>
+      <router-link to="/recording" href="/recording" class="btn btn--body">start Recording</router-link>
     </div>
   </section>
   </main>
