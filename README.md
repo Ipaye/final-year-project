@@ -17,3 +17,18 @@ This Project was Design by [Ipaye Alameen](https://ipaye.github.io)
 - [x] - Webpack
 - [x] - Svg
 - [x] - Figma
+
+## App Info
+
+### Author
+
+Ipaye Alameen
+[Ipaye ALameen](https://www.ipaye.github.io)
+
+### Version
+
+1.0.0
+
+### License
+
+This project is licensed under the MIT License
