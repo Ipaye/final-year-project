@@ -5,19 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
-		notes: [
-			'Hello world',
-			'Hello world',
-			'Hello world',
-			'Hello world',
-			'Hello world',
-			'Hello world',
-			'Hello world',
-			'Hello world',
-			'Hello world',
-			'Hello world',
-			'Hello world'
-		]
+		notes: []
 	},
 	getters: {
 		availableNotes(state, getters) {
