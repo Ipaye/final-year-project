@@ -99,13 +99,14 @@ a:visited {
 
 .note {
 	position: relative;
-	min-width: 350px;
-	flex-grow: 1;
+	min-width: 400px;
+	// flex-grow: 1;
 	margin: 20px;
 	border-radius: 1.5px;
 	background-color: #f7f7f7;
 	box-shadow: 0 10px 10px 0 rgba(255, 87, 34, 0.5);
 	border-radius: 5px;
+	text-overflow: ellipsis;
 
 	&__content {
 		padding: 20px;
