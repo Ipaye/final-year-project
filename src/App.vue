@@ -14,9 +14,9 @@
       <div>
         <div class="sidebar__navigation">
           <li class="sidebar__navigation-item">
-            <router-link href="/documentation" to="/documentation">
+            <a href="https://github.com/Ipaye/final-year-project" >
               <img src="./assets/img/edit.svg" class="icon icon--documentation" alt="documentation icon">
-              <p class="sidebar__navigation--text">Documentation</p></router-link>            
+              <p class="sidebar__navigation--text">Documentation</p></a>            
           </li>
           <li class="sidebar__navigation-item">
             <router-link to="/notes" href="/notes">
