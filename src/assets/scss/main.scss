@@ -107,6 +107,7 @@ a:visited {
 	box-shadow: 0 10px 10px 0 rgba(255, 87, 34, 0.5);
 	border-radius: 5px;
 	text-overflow: ellipsis;
+	overflow: hidden;
 
 	&__content {
 		padding: 20px;
