@@ -7,8 +7,10 @@
 		"email": "Akinkunmi007@gmail.com",
 		"url": "https:ipaye.github.io"
 	},
+	"homepage": "https://ipaye.github.io/final-year-project",
 	"private": true,
 	"scripts": {
+		"deploy": "gh-pages -d dist",
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
 		"lint": "vue-cli-service lint",
@@ -33,6 +35,7 @@
 		"@vue/test-utils": "^1.0.0-beta.20",
 		"chai": "^4.1.2",
 		"electron": "^2.0.2",
+		"gh-pages": "^2.0.1",
 		"node-sass": "^4.9.0",
 		"sass-loader": "^7.0.1",
 		"vue-cli-plugin-electron-builder": "^1.0.0-rc.3",
