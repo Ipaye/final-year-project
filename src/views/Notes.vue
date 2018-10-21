@@ -8,8 +8,8 @@
           <div class="note" v-for="(note, index) in notes" :key="index">
             <div class="note__content"> {{note}} </div>
             <div class="note__footer">
-              <div class="note__footer--left">Content edited</div>
-              <div class="note__footer--right">logo logo logo </div>
+              <div class="note__footer--left">Note Saved</div>
+              <div class="note__footer--right">Save Delete </div>
             </div>
           </div>
         </div>
