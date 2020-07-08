@@ -12,7 +12,7 @@ This Project was Design by [Ipaye Alameen](https://ipaye.github.io)
 - [x] - Vue.js
 - [x] - Es6
 - [x] - Electron builder
-- [x] - Electron
+- [ ] - Electron
 - [x] - Scss
 - [x] - Webpack
 - [x] - Svg
