@@ -1,55 +1,79 @@
 {
-	"name": "Speeco",
-	"version": "1.0.0",
-	"description": "A speech to text converter",
-	"author": {
-		"name": "Ipaye Alameen",
-		"email": "Akinkunmi007@gmail.com",
-		"url": "https:ipaye.github.io"
-	},
-	"homepage": "https://ipaye.github.io/final-year-project",
-	"private": true,
-	"scripts": {
-		"deploy": "gh-pages -d dist",
-		"serve": "vue-cli-service serve",
-		"build": "vue-cli-service build",
-		"lint": "vue-cli-service lint",
-		"test:unit": "vue-cli-service test:unit",
-		"test:e2e": "vue-cli-service test:e2e",
-		"build:electron": "vue-cli-service build:electron",
-		"serve:electron": "vue-cli-service serve:electron",
-		"postinstall": "electron-builder install-app-deps"
-	},
-	"dependencies": {
-		"vue": "^2.5.17",
-		"vue-router": "^3.0.1",
-		"vuex": "^3.0.1"
-	},
-	"devDependencies": {
-		"@vue/cli-plugin-babel": "^3.0.4",
-		"@vue/cli-plugin-e2e-nightwatch": "^3.0.4",
-		"@vue/cli-plugin-eslint": "^3.0.4",
-		"@vue/cli-plugin-unit-mocha": "^3.0.4",
-		"@vue/cli-service": "^3.0.4",
-		"@vue/eslint-config-standard": "^3.0.4",
-		"@vue/test-utils": "^1.0.0-beta.20",
-		"chai": "^4.1.2",
-		"electron": "^7.2.4",
-		"gh-pages": "^2.0.1",
-		"node-sass": "^4.9.0",
-		"sass-loader": "^7.0.1",
-		"vue-cli-plugin-electron-builder": "^1.0.0-rc.3",
-		"vue-template-compiler": "^2.5.17"
-	},
-	"postcss": {
-		"plugins": {
-			"autoprefixer": {}
-		}
-	},
-	"browserslist": [
-		"> 1%",
-		"last 2 versions",
-		"not ie <= 8"
-	],
-	"main": "dist_electron/bundled/background.js"
+  "name": "speeco",
+  "version": "2.0.0",
+  "description": "Speeco — turn spoken words into clean, saved text notes.",
+  "author": {
+    "name": "Ipaye Alameen",
+    "email": "akinkunmi007@gmail.com",
+    "url": "https://ipaye.github.io"
+  },
+  "homepage": "https://ipaye.github.io/final-year-project",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint . --ext .js,.vue",
+    "electron:dev": "concurrently -k -n VITE,ELECTRON -c blue,magenta \"vite\" \"wait-on tcp:5173 && cross-env NODE_ENV=development electron electron/main.cjs\"",
+    "electron:build": "vite build && electron-builder",
+    "deploy": "vite build && gh-pages -d dist"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@fontsource/space-grotesk": "^5.3.0",
+    "@huggingface/transformers": "^4.2.0",
+    "pinia": "^4.0.3",
+    "vue": "^3.5.41",
+    "vue-router": "^5.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/test-utils": "^2.4.11",
+    "concurrently": "^10.0.5",
+    "cross-env": "^10.1.0",
+    "electron": "^44.0.0",
+    "electron-builder": "^26.15.3",
+    "eslint": "^10.9.1",
+    "eslint-plugin-vue": "^10.10.0",
+    "gh-pages": "^6.3.0",
+    "jsdom": "^30.0.1",
+    "sass": "^1.103.1",
+    "vite": "^8.2.2",
+    "vitest": "^4.1.11",
+    "wait-on": "^9.1.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "main": "electron/main.cjs",
+  "build": {
+    "appId": "com.ipayealameen.speeco",
+    "productName": "Speeco",
+    "directories": {
+      "output": "dist_electron"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "extendInfo": {
+        "NSMicrophoneUsageDescription": "Speeco needs microphone access to transcribe your speech into notes."
+      }
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage",
+      "category": "Utility"
+    }
+  }
 }

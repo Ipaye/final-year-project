@@ -1,14 +1,15 @@
-import Vue from 'vue';
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
+
+import '@fontsource/space-grotesk/700.css';
+import '@fontsource/space-grotesk/500.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/jetbrains-mono/400.css';
+import '@fontsource/jetbrains-mono/500.css';
+
 import App from './App.vue';
 import router from './router';
-import store from './store';
 
-import './assets/scss/main.scss';
-
-Vue.config.productionTip = false;
-
-new Vue({
-	router,
-	store,
-	render: h => h(App)
-}).$mount('#app');
+createApp(App).use(createPinia()).use(router).mount('#app');

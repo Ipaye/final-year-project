@@ -1,73 +1,57 @@
 <template>
-  <div id="app">
-     <aside id="sidebar" :class="{active: active}">
-      <div class="sidebar__hamburger">
-        <li class="sidebar__navigation-item">
-        <img src="./assets/img/hamburger.svg" alt="humburger icon" @click="active = !active" class="icon icon--sidebar">
-        </li>
-      </div>
-      <div class="sidebar__brand">
-        <router-link to="/">
-        <img src="./assets/img/speeco-logo.png" alt="speeco logo" class="brand-logo">
-        </router-link>
-      </div>
-      <div>
-        <div class="sidebar__navigation">
-          <li class="sidebar__navigation-item">
-            <a href="https://github.com/Ipaye/final-year-project" >
-              <img src="./assets/img/edit.svg" class="icon icon--documentation" alt="documentation icon">
-              <p class="sidebar__navigation--text">Documentation</p></a>            
-          </li>
-          <li class="sidebar__navigation-item">
-            <router-link to="/notes" href="/notes">
-              <img src="./assets/img/file.svg" class="icon icon--setting" alt="file icon">
-             <p class="sidebar__navigation--text">Notes</p>
-            </router-link>            
-          </li>
-          <li class="sidebar__navigation-item">
-            <router-link to="credits" href="/credits">
-              <img src="./assets/img/user.svg" class="icon icon--credits" alt="credits icon">
-            <p class="sidebar__navigation--text">Credits</p>
-            </router-link>
-          </li>
-        </div>
-      </div>
-      <div class="sidebar__btn">
-        <router-link to="/record" href="#" class="btn btn--sidebar">Record</router-link>
-      </div>
-
-      <div class="sidebar__setting">
-        <img src="./assets/img/setting-icon.svg" class="icon icon--setting" alt="setting icon">
-        <p class="sidebar__navigation--text">Setting</p>
-      </div>
-
-    </aside>
-     <main id="mainContent">  
-
+  <div class="shell">
+    <AppSidebar :collapsed="collapsed" @toggle="collapsed = !collapsed" />
+    <main class="shell__content" :class="{ 'shell__content--collapsed': collapsed }">
+      <RouterView v-slot="{ Component, route }">
+        <Transition name="fade" mode="out-in">
+          <component :is="Component" :key="route.path" />
+        </Transition>
+      </RouterView>
     </main>
-    <img src="/img/UnderBucket.svg" class="buttomBucket none" alt="floating bucket">
-
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
-    <router-view/>
   </div>
 </template>
 
-<script>
-export default {
-	data: () => ({
-		active: true
-	}),
-	methods: {
-		/* toggleSidebar() {
-			const ham = document.querySelector('.icon--sidebar');
-			const sidebar = document.querySelector('#sidebar');
-			ham.addEventListener('click', () => {
-				sidebar.classList.toggle('active');
-			});
-		} */
-	}
-};
+<script setup>
+import { ref } from 'vue';
+import AppSidebar from '@/components/AppSidebar.vue';
+
+const collapsed = ref(false);
 </script>
+
+<style lang="scss">
+@use '@/assets/styles/main.scss';
+</style>
+
+<style scoped lang="scss">
+.shell {
+  min-height: 100vh;
+}
+
+.shell__content {
+  margin-left: var(--rail-width);
+  min-height: 100vh;
+  padding: clamp(1.5rem, 3vw, 3.5rem);
+  transition: margin-left 0.35s var(--ease-out);
+}
+
+.shell__content--collapsed {
+  margin-left: var(--rail-width-collapsed);
+}
+
+@media (max-width: 720px) {
+  .shell__content {
+    margin-left: var(--rail-width-collapsed);
+    padding: 1.25rem;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.18s var(--ease-out);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>

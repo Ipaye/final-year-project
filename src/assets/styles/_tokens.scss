@@ -1,0 +1,33 @@
+// Speeco design tokens
+// Palette, type scale and layout constants shared across the app.
+
+:root {
+  // Color — warm paper + ink, with the Speeco ember as the single accent
+  // and a signal teal reserved for "listening / live" states.
+  --color-paper: #faf9f6;
+  --color-paper-raised: #ffffff;
+  --color-ink: #1a1a1e;
+  --color-ink-soft: #4a4a52;
+  --color-slate: #7a7a83;
+  --color-line: #e7e4df;
+  --color-ember: #ff5a36;
+  --color-ember-strong: #e4441f;
+  --color-signal: #1fae85;
+  --color-signal-soft: #e3f5ef;
+  --color-ember-soft: #ffe9e2;
+
+  // Type
+  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-body: 'Inter', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+
+  // Layout
+  --rail-width: 15.5rem;
+  --rail-width-collapsed: 5.5rem;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --shadow-card: 0 1px 2px rgba(26, 26, 30, 0.04), 0 8px 24px rgba(26, 26, 30, 0.06);
+  --shadow-pop: 0 12px 32px rgba(255, 90, 54, 0.22);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
