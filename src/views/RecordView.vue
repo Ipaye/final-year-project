@@ -24,27 +24,35 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import AppIcon from '@/components/AppIcon.vue';
 import Waveform from '@/components/Waveform.vue';
 import { useSettingsStore } from '@/stores/settings';
 import { getSpeechRecognitionCtor } from '@/composables/useSpeechRecognition';
+import { resolveEngine } from '@/utils/engine';
+import { isBraveBrowser } from '@/utils/browser';
 
 const settings = useSettingsStore();
 const nativeSupported = Boolean(getSpeechRecognitionCtor());
-
-const willUseWhisper = computed(() => {
-  if (settings.engine === 'whisper') return true;
-  if (settings.engine === 'browser') return false;
-  return !nativeSupported;
+const isBrave = ref(false);
+onMounted(async () => {
+  isBrave.value = await isBraveBrowser();
 });
 
-const engineIcon = computed(() => (willUseWhisper.value ? 'chip' : 'cloud'));
-const engineLabel = computed(() =>
-  willUseWhisper.value
-    ? 'Using on-device AI transcription (Whisper) — private, works after you stop talking'
-    : "Using your browser's live transcription"
+const engine = computed(() =>
+  resolveEngine({ settingEngine: settings.engine, nativeSupported, isBrave: isBrave.value })
 );
+const willUseWhisper = computed(() => engine.value === 'whisper');
+
+const engineIcon = computed(() => (willUseWhisper.value ? 'chip' : 'cloud'));
+const engineLabel = computed(() => {
+  if (willUseWhisper.value && isBrave.value && settings.engine === 'auto') {
+    return 'Brave blocks browser speech recognition — using on-device AI transcription instead';
+  }
+  return willUseWhisper.value
+    ? 'Using on-device AI transcription (Whisper) — private, works after you stop talking'
+    : "Using your browser's live transcription";
+});
 </script>
 
 <style scoped lang="scss">

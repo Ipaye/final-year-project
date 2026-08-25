@@ -58,7 +58,7 @@ const engineOptions = [
     value: 'browser',
     icon: 'cloud',
     title: "Browser's live transcription",
-    desc: 'Fastest, word-by-word. Chrome and Edge only.'
+    desc: 'Fastest, word-by-word. Chrome and Edge only — not Brave, which blocks it silently.'
   },
   {
     value: 'whisper',

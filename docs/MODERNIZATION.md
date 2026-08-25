@@ -90,6 +90,8 @@ never download it.
 - `notes.store.spec.js`, `settings.store.spec.js` — Pinia store behavior + persistence
 - `useSpeechRecognition.spec.js` — the transcript-accumulation reducer that replaced the
   buggy computed properties
+- `engine.spec.js` — the auto/browser/whisper engine-selection logic, including the Brave
+  case
 - `time.spec.js` — the mm:ss formatter used by the recording timer
 - `router.spec.js` — route table, including a regression check for the credits link bug
 - `HomeView.spec.js`, `NotesView.spec.js`, `Waveform.spec.js` — component rendering and
@@ -98,6 +100,29 @@ never download it.
 `MediaRecorder`/`AudioContext`-dependent code (the Whisper recording pipeline) isn't
 exercised by jsdom-based unit tests — jsdom doesn't implement those APIs — so that path was
 verified manually in a real browser instead.
+
+## Known issue: Brave silently breaks native transcription
+
+Brave ships the same `webkitSpeechRecognition` constructor as Chrome (so feature-detection
+says "native supported"), but blocks the network round-trip to Google's speech backend for
+privacy reasons. The result: the mic permission prompt appears, `recognition.start()`
+succeeds, and then nothing ever comes back — no transcript, no error event, indefinitely.
+This was reported as "recording doesn't work" and reproduced with a headless Playwright
+probe (`recognition.start()` fires, no `result`/`error`/`end` event ever follows).
+
+Fixed by:
+
+- `src/utils/browser.js` — `isBraveBrowser()` uses Brave's own opt-in feature-detection API
+  (`navigator.brave.isBrave()`, which Brave exposes specifically so sites can work around
+  this) to detect it on mount.
+- `src/utils/engine.js` — `resolveEngine()` treats Brave as "native not usable" under the
+  `auto` setting, so it's routed straight to the on-device Whisper engine, with the reason
+  surfaced in the UI on both `/record` and `/recording`.
+- `RecordingView.vue` — a generic safety net for the same symptom in any other
+  browser/fork: if native listening produces zero transcript for 6+ seconds, a hint appears
+  with a one-click "Switch to on-device AI" action. Real `SpeechRecognition` error codes
+  (`network`, `no-speech`, `audio-capture`, `service-not-allowed`, `aborted`) now also get a
+  human-readable message instead of failing silently.
 
 ## Desktop (Electron)
 
